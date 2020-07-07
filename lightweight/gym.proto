@@ -7,6 +7,9 @@ service Gym {
     rpc BodyBuilding (Person) returns (Reply) {
 
     }
+    rpc DemoBuilding (RequestDemo) returns (ResponseDemo) {
+
+    }
 }
 //谁在健身
 message Person {
@@ -16,6 +19,17 @@ message Person {
 
 //结果
 message Reply {
+    int32 code = 1;
+    string msg = 2;
+}
+
+// demo request
+message RequestDemo {
+    string name = 1;
+}
+
+//demo response
+message ResponseDemo {
     int32 code = 1;
     string msg = 2;
 }

@@ -23,6 +23,11 @@ func (s *server) BodyBuilding(ctx context.Context, in *lightweight.Person) (*lig
 	fmt.Printf("%s正在健身, 动作: %s\n", in.Name, in.Actions)
 	return &lightweight.Reply{Code: 0, Msg: "ok",}, nil
 }
+
+func (s *server) DemoBuilding(ctx context.Context, in *lightweight.RequestDemo) (*lightweight.ResponseDemo, error) {
+	fmt.Println("there is a heaven above you! "+in.Name)
+	return &lightweight.ResponseDemo{Code: 200, Msg: "ok",}, nil
+}
 func main() {
 	fmt.Print("rpc服务端启动")
 	lis, err := net.Listen("tcp", port)
@@ -32,7 +37,6 @@ func main() {
 
 	s := grpc.NewServer()
 	lightweight.RegisterGymServer(s, &server{})
-
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
