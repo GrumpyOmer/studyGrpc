@@ -1,0 +1,67 @@
+syntax = "proto3";
+//命名空间
+package myFirstGrpcPackage;
+
+//定义rpc服务
+service Gym {
+    //普通rpc
+    rpc DemoOne (RequestDemoOne) returns (ResponseDemoOne) {
+    }
+    //服务端流rpc
+    rpc DemoTwo (RequestDemoTwo) returns (stream ResponseDemoTwo) {
+    }
+    //客户端流rpc
+    rpc DemoThree (stream RequestDemoThree) returns (ResponseDemoThree) {
+    }
+    //双向流rpc
+    rpc DemoFour (stream RequestDemoFour) returns (stream ResponseDemoFour) {
+    }
+}
+
+//普通rpc
+// demo one request
+message RequestDemoOne {
+    string name = 1;
+}
+
+//demo one response
+message ResponseDemoOne {
+    int32 code = 1;
+    string msg = 2;
+}
+
+//服务端流rpc
+// demo two request
+message RequestDemoTwo {
+    string name = 1;
+}
+
+//demo two response
+message ResponseDemoTwo {
+    int32 code = 1;
+    string msg = 2;
+}
+
+//客户端流rpc
+// demo three request
+message RequestDemoThree {
+    string name = 1;
+}
+
+//demo three response
+message ResponseDemoThree {
+    int32 code = 1;
+    string msg = 2;
+}
+
+//双向流rpc
+// demo four request
+message RequestDemoFour {
+    string name = 1;
+}
+
+//demo four response
+message ResponseDemoFour {
+    int32 code = 1;
+    string msg = 2;
+}
