@@ -1,7 +1,4 @@
-# rpc-go
-my first golang's rpc project<br>
-
-
+# studyGrpc
 gRPC 中主要有四种请求/响应模式：(例子代码可参考,均实现了一个demo)
 - 普通 RPC
 - 服务端流式 RPC
